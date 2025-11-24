@@ -1,0 +1,222 @@
+<!-- docs/index.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Únete a My Wallet</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        
+        .container {
+            text-align: center;
+            padding: 2rem;
+            max-width: 500px;
+        }
+        
+        .logo {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 2rem;
+            background: white;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+        
+        .spinner {
+            width: 50px;
+            height: 50px;
+            margin: 2rem auto;
+            border: 4px solid rgba(255,255,255,0.3);
+            border-top-color: white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .error {
+            background: rgba(255,255,255,0.2);
+            padding: 1rem;
+            border-radius: 10px;
+            margin-top: 1rem;
+        }
+        
+        .debug {
+            background: rgba(0,0,0,0.2);
+            padding: 1rem;
+            border-radius: 10px;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            text-align: left;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">🎁</div>
+        <h1>¡Te han invitado!</h1>
+        <p>Redirigiendo a la tienda de aplicaciones...</p>
+        <div class="spinner"></div>
+        <div id="status"></div>
+        <div id="debug" class="debug" style="display: none;"></div>
+    </div>
+
+    <script>
+        // Configuración
+        const CONFIG = {
+            androidPackageId: 'com.diarsoluciones.loyaltyApp',
+            iosAppId: '6742034760',
+            playStoreUrl: 'https://play.google.com/store/apps/details',
+            appStoreUrl: 'https://apps.apple.com/app',
+            debugMode: true // Cambiar a false en producción
+        };
+
+        function log(message) {
+            console.log(message);
+            if (CONFIG.debugMode) {
+                const debugDiv = document.getElementById('debug');
+                debugDiv.style.display = 'block';
+                debugDiv.innerHTML += message + '<br>';
+            }
+        }
+
+        function showError(message) {
+            document.getElementById('status').innerHTML = 
+                `<div class="error">❌ ${message}</div>`;
+        }
+
+        // Extraer el parámetro 'ref' de la URL
+        function getReferralCode() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get('ref');
+        }
+
+        // Detectar plataforma
+        function detectPlatform() {
+            const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            
+            if (/android/i.test(userAgent)) {
+                return 'android';
+            }
+            
+            if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                return 'ios';
+            }
+            
+            return 'unknown';
+        }
+
+        // Redirigir a Android (Play Store con referrer)
+        function redirectAndroid(linkId) {
+            log('📱 Plataforma: Android');
+            log(`🔗 LinkId: ${linkId}`);
+            
+            // Construir URL con referrer parameter
+            const referrerParam = `linkId=${encodeURIComponent(linkId)}`;
+            const playStoreUrl = `${CONFIG.playStoreUrl}?id=${CONFIG.androidPackageId}&referrer=${encodeURIComponent(referrerParam)}`;
+            
+            log(`🌐 Redirigiendo a: ${playStoreUrl}`);
+            
+            setTimeout(() => {
+                window.location.href = playStoreUrl;
+            }, 1500);
+        }
+
+        // Redirigir a iOS (App Store con clipboard)
+        async function redirectIOS(linkId) {
+            log('📱 Plataforma: iOS');
+            log(`🔗 LinkId: ${linkId}`);
+            
+            const clipboardText = `REFERRAL:${linkId}`;
+            
+            try {
+                // Intentar copiar al clipboard (requiere interacción del usuario en algunos navegadores)
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    await navigator.clipboard.writeText(clipboardText);
+                    log('✅ Copiado al clipboard: ' + clipboardText);
+                } else {
+                    log('⚠️ Clipboard API no disponible');
+                }
+            } catch (err) {
+                log('⚠️ Error copiando al clipboard: ' + err.message);
+            }
+            
+            const appStoreUrl = `${CONFIG.appStoreUrl}/${CONFIG.iosAppId}`;
+            log(`🌐 Redirigiendo a: ${appStoreUrl}`);
+            
+            setTimeout(() => {
+                window.location.href = appStoreUrl;
+            }, 1500);
+        }
+
+        // Función principal
+        async function main() {
+            log('🚀 Iniciando redirección...');
+            
+            // 1. Obtener el código de referido
+            const linkId = getReferralCode();
+            
+            if (!linkId) {
+                log('❌ No se encontró parámetro ref en la URL');
+                showError('Link inválido. Por favor solicita un nuevo link de invitación.');
+                return;
+            }
+            
+            log(`✅ LinkId extraído: ${linkId}`);
+            
+            // 2. Detectar plataforma
+            const platform = detectPlatform();
+            log(`✅ Plataforma detectada: ${platform}`);
+            
+            // 3. Redirigir según plataforma
+            if (platform === 'android') {
+                redirectAndroid(linkId);
+            } else if (platform === 'ios') {
+                await redirectIOS(linkId);
+            } else {
+                log('❌ Plataforma no soportada: ' + navigator.userAgent);
+                showError('Por favor abre este link desde un dispositivo Android o iOS.');
+            }
+        }
+
+        // Ejecutar al cargar la página
+        window.addEventListener('load', main);
+    </script>
+</body>
+</html>

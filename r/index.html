@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="¡Has sido invitado! Descarga la app y gana premios">
+  
+  <!-- Open Graph para compartir en redes sociales -->
+  <meta property="og:title" content="¡Te invitaron a ganar premios!">
+  <meta property="og:description" content="Descarga la app y empieza a ganar recompensas increíbles">
+  <meta property="og:image" content="https://tu-dominio.com/share-image.png">
+  <meta property="og:type" content="website">
+  
+  <title>¡Has sido invitado! - My Wallet</title>
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .icon {
+      font-size: 80px;
+      margin-bottom: 20px;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(-20px); }
+      60% { transform: translateY(-10px); }
+    }
+
+    h1 {
+      font-size: 2em;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    .subtitle {
+      font-size: 1.2em;
+      margin-bottom: 30px;
+      opacity: 0.9;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 16px 48px;
+      background: white;
+      color: #667eea;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: bold;
+      font-size: 1.1em;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      margin: 10px 0;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .button:active {
+      transform: translateY(0);
+    }
+
+    .status {
+      margin-top: 30px;
+      font-size: 0.9em;
+      opacity: 0.8;
+      min-height: 20px;
+    }
+
+    .loading {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 3px solid rgba(255, 255, 255, 0.3);
+      border-top-color: white;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .features {
+      margin-top: 40px;
+      text-align: left;
+    }
+
+    .feature {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+      font-size: 0.95em;
+    }
+
+    .feature-icon {
+      font-size: 1.5em;
+      margin-right: 12px;
+    }
+
+    .disclaimer {
+      margin-top: 30px;
+      font-size: 0.75em;
+      opacity: 0.6;
+    }
+
+    /* Responsive */
+    @media (max-width: 480px) {
+      h1 { font-size: 1.5em; }
+      .subtitle { font-size: 1em; }
+      .button { padding: 14px 36px; font-size: 1em; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="icon">🎁</div>
+    
+    <h1>¡Has sido invitado!</h1>
+    <p class="subtitle">Descarga la app y gana premios increíbles</p>
+    
+    <a id="download-btn" href="#" class="button">
+      Descargar App
+    </a>
+    
+    <div class="status" id="status">
+      <span class="loading"></span>
+    </div>
+
+    <div class="features">
+      <div class="feature">
+        <span class="feature-icon">🎰</span>
+        <span>Gira la ruleta y gana premios</span>
+      </div>
+      <div class="feature">
+        <span class="feature-icon">🎫</span>
+        <span>Cupones exclusivos</span>
+      </div>
+      <div class="feature">
+        <span class="feature-icon">👥</span>
+        <span>Invita amigos y gana más</span>
+      </div>
+    </div>
+
+    <p class="disclaimer">
+      Al continuar, aceptas nuestros términos y condiciones
+    </p>
+  </div>
+
+  <script>
+    // ========================================
+    // CONFIGURACIÓN
+    // ========================================
+    const CONFIG = {
+      androidPackage: 'com.diarsoluciones.loyaltyApp',
+      iosAppStoreId: '6742034760',
+      appScheme: 'mayi',
+    };
+
+    // ========================================
+    // OBTENER LINK ID
+    // ========================================
+    function getLinkId() {
+      // Obtener de la URL: /r?ref=abc123 o /r/abc123
+      const params = new URLSearchParams(window.location.search);
+      let linkId = params.get('ref');
+      
+      if (!linkId) {
+        // Intentar obtener del path: /r/abc123
+        const pathParts = window.location.pathname.split('/');
+        linkId = pathParts[pathParts.length - 1];
+        
+        // Si es 'r' o vacío, es inválido
+        if (linkId === 'r' || linkId === '' || linkId === 'index.html') {
+          linkId = null;
+        }
+      }
+      
+      return linkId;
+    }
+
+    // ========================================
+    // DETECTAR PLATAFORMA
+    // ========================================
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    const isAndroid = /Android/i.test(userAgent);
+    const isIOS = /iPhone|iPad|iPod/i.test(userAgent);
+    const isMobile = isAndroid || isIOS;
+
+    // ========================================
+    // LOGGING
+    // ========================================
+    function log(message, data) {
+      console.log(`[ReferralPage] ${message}`, data || '');
+    }
+
+    // ========================================
+    // ACTUALIZAR STATUS
+    // ========================================
+    function updateStatus(message, showLoading = false) {
+      const statusEl = document.getElementById('status');
+      statusEl.innerHTML = showLoading 
+        ? `<span class="loading"></span> ${message}`
+        : message;
+    }
+
+    // ========================================
+    // COPIAR AL CLIPBOARD (iOS)
+    // ========================================
+    async function copyToClipboard(text) {
+      try {
+        // Método moderno
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          await navigator.clipboard.writeText(text);
+          log('Copied to clipboard (modern API):', text);
+          return true;
+        }
+        
+        // Fallback para navegadores antiguos
+        const input = document.createElement('input');
+        input.value = text;
+        input.style.position = 'absolute';
+        input.style.left = '-9999px';
+        document.body.appendChild(input);
+        
+        input.select();
+        input.setSelectionRange(0, 99999); // Para móviles
+        
+        const success = document.execCommand('copy');
+        document.body.removeChild(input);
+        
+        log('Copied to clipboard (fallback):', success);
+        return success;
+      } catch (err) {
+        log('Error copying to clipboard:', err);
+        return false;
+      }
+    }
+
+    // ========================================
+    // MAIN REDIRECT LOGIC
+    // ========================================
+    async function handleRedirect() {
+      const linkId = getLinkId();
+      
+      log('LinkId:', linkId);
+      log('Platform:', { isAndroid, isIOS, isMobile });
+
+      // Validar linkId
+      if (!linkId) {
+        updateStatus('❌ Link inválido', false);
+        log('Invalid linkId');
+        return;
+      }
+
+      // Si no es móvil, mostrar mensaje
+      if (!isMobile) {
+        updateStatus('📱 Por favor abre este link desde tu teléfono móvil', false);
+        document.getElementById('download-btn').style.display = 'none';
+        return;
+      }
+
+      updateStatus('Abriendo la app...', true);
+
+      // ========================================
+      // INTENTAR ABRIR LA APP (si ya está instalada)
+      // ========================================
+      const deepLink = `${CONFIG.appScheme}://referral?ref=${linkId}`;
+      log('Attempting deep link:', deepLink);
+
+      // Crear iframe oculto para intentar abrir la app
+      const iframe = document.createElement('iframe');
+      iframe.style.display = 'none';
+      iframe.src = deepLink;
+      document.body.appendChild(iframe);
+
+      // Esperar 1.5 segundos
+      await new Promise(resolve => setTimeout(resolve, 1500));
+
+      // Si llegamos aquí, la app probablemente no está instalada
+      log('App not installed, redirecting to store');
+
+      // ========================================
+      // ANDROID: Redirigir a Play Store con referrer
+      // ========================================
+      if (isAndroid) {
+        const playStoreUrl = `https://play.google.com/store/apps/details?id=${CONFIG.androidPackage}&referrer=linkId%3D${encodeURIComponent(linkId)}`;
+        
+        log('Redirecting to Play Store:', playStoreUrl);
+        updateStatus('Abriendo Google Play Store...', true);
+        
+        document.getElementById('download-btn').href = playStoreUrl;
+        
+        // Redirigir automáticamente
+        setTimeout(() => {
+          window.location.href = playStoreUrl;
+        }, 500);
+      }
+      
+      // ========================================
+      // iOS: Copiar al clipboard y redirigir a App Store
+      // ========================================
+      else if (isIOS) {
+        updateStatus('Preparando...', true);
+        
+        // Copiar linkId al clipboard con prefijo especial
+        const clipboardText = `REFERRAL:${linkId}`;
+        const copied = await copyToClipboard(clipboardText);
+        
+        if (copied) {
+          log('Clipboard success');
+          updateStatus('Código guardado. Abriendo App Store...', true);
+        } else {
+          log('Clipboard failed, continuing anyway');
+          updateStatus('Abriendo App Store...', true);
+        }
+
+        // Esperar 800ms para asegurar que el clipboard se copió
+        await new Promise(resolve => setTimeout(resolve, 800));
+
+        const appStoreUrl = `https://apps.apple.com/app/id${CONFIG.iosAppStoreId}`;
+        
+        log('Redirecting to App Store:', appStoreUrl);
+        document.getElementById('download-btn').href = appStoreUrl;
+        
+        // Redirigir automáticamente
+        window.location.href = appStoreUrl;
+      }
+    }
+
+    // ========================================
+    // EJECUTAR AL CARGAR
+    // ========================================
+    if (isMobile) {
+      // Iniciar proceso automáticamente después de un pequeño delay
+      // para que el usuario vea la página
+      setTimeout(handleRedirect, 800);
+    } else {
+      updateStatus('📱 Por favor abre este link desde tu teléfono móvil', false);
+      document.getElementById('download-btn').style.display = 'none';
+    }
+
+    // Actualizar texto del botón según plataforma
+    window.addEventListener('load', () => {
+      const btn = document.getElementById('download-btn');
+      if (isAndroid) {
+        btn.textContent = 'Descargar en Play Store';
+      } else if (isIOS) {
+        btn.textContent = 'Descargar en App Store';
+      }
+    });
+  </script>
+</body>
+</html>
