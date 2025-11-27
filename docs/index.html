@@ -107,18 +107,28 @@
             debugMode: true // Cambiar a false en producción
         };
 
+        let linkId = null;
+        let platform = 'unknown';
+
         function log(message) {
             console.log(message);
             if (CONFIG.debugMode) {
                 const debugDiv = document.getElementById('debug');
                 debugDiv.style.display = 'block';
-                debugDiv.innerHTML += message + '<br>';
+                debugDiv.innerHTML += `${new Date().toLocaleTimeString()}: ${message}<br>`;
+                debugDiv.scrollTop = debugDiv.scrollHeight;
             }
         }
 
-        function showError(message) {
-            document.getElementById('status').innerHTML = 
-                `<div class="error">❌ ${message}</div>`;
+        function showStatus(message, type = 'success') {
+            const statusDiv = document.getElementById('statusMessage');
+            statusDiv.textContent = message;
+            statusDiv.className = `status-message ${type}`;
+        }
+
+        function hideStatus() {
+            const statusDiv = document.getElementById('statusMessage');
+            statusDiv.className = 'status-message';
         }
 
         // Extraer el parámetro 'ref' de la URL
