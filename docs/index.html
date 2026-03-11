@@ -24,6 +24,22 @@
             color: white;
             padding: 1rem;
         }
+                
+        .app-logo {
+            width: 160px;
+            max-width: 70%;
+            margin: 0 auto 1.5rem;
+            display: block;
+        }
+
+        .branch-banner {
+            width: 100%;
+            max-width: 480px;
+            border-radius: 16px;
+            margin: 0 auto 1.5rem;
+            display: block;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
         
         .container {
             text-align: center;
@@ -171,11 +187,27 @@
 </head>
 <body>
     <div class="container">
+        <img
+          src="https://tudominio.com/images/logo-sicaf-rojo.png"
+          alt="My Wallet"
+          class="app-logo"
+        />
         <div class="logo">🎁</div>
+        <img
+          src="https://tudominio.com/images/banner-sucursal.jpg"
+          alt="Sucursal Sicaf"
+          class="branch-banner"
+        />
         <h1>¡Te han invitado a My Wallet!</h1>
-        <p class="subtitle">
-            Has recibido una invitación especial.<br>
-            Descarga la app y obtén beneficios exclusivos.
+        <p class="subtitle">            
+            My Wallet Es tu monedero electrónico de lealtad donde:<br>
+
+            ✨ Acumulas puntos con cada compra<br>
+            🎁 Canjeas cupones y descuentos exclusivos<br>
+            🎰 Giras la ruleta y ganas premios sorpresa<br>
+            📱 Llevas todo en tu celular, sin tarjetas físicas<br>
+            🔔 Te avisamos de promociones y ofertas especiales<br>
+            📍 Encuentras sucursales cercanas fácilmente
         </p>
         
         <button id="downloadBtn" class="cta-button">
@@ -192,6 +224,10 @@
         </div>
         
         <div id="debug" class="debug"></div>
+
+        <div style="margin-top: 1.5rem; font-size: 0.85rem; opacity: 0.75;">
+            <a href="/privacidad.html" style="color: white; text-decoration: underline;">Política de Privacidad</a>
+        </div>
     </div>
 
     <script>
