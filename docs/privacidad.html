@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Términos, Condiciones y Aviso de Privacidad – My Wallet</title>
+    <title>Política de Privacidad – MyWallet</title>
 
     <style>
         * {
@@ -78,7 +78,12 @@
             letter-spacing: 0.04em;
         }
 
-        .card h2 .icon { font-size: 1.15rem; }
+        .card h3 {
+            font-size: 0.92rem;
+            font-weight: 700;
+            margin: 1rem 0 0.5rem;
+            opacity: 0.95;
+        }
 
         .card p,
         .card li {
@@ -89,10 +94,10 @@
 
         .card ul, .card ol {
             padding-left: 1.3rem;
-            margin-top: 0.5rem;
+            margin-top: 0.4rem;
         }
 
-        .card li { margin-bottom: 0.4rem; }
+        .card li { margin-bottom: 0.35rem; }
 
         .card p + p { margin-top: 0.7rem; }
 
@@ -103,7 +108,29 @@
             padding: 1rem 1.2rem;
             margin-top: 1rem;
             font-size: 0.9rem;
-            line-height: 1.6;
+            line-height: 1.7;
+        }
+
+        .highlight a { color: white; font-weight: 600; }
+
+        /* ── Consent checklist ── */
+        .consent-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 0.5rem;
+        }
+
+        .consent-list li {
+            padding: 0.35rem 0;
+            display: flex;
+            gap: 0.6rem;
+        }
+
+        .consent-list li::before {
+            content: '✓';
+            font-weight: 700;
+            color: rgba(255,255,255,0.9);
+            flex-shrink: 0;
         }
 
         /* ── Contact box ── */
@@ -113,7 +140,7 @@
             padding: 1rem 1.2rem;
             margin-top: 1rem;
             font-size: 0.92rem;
-            line-height: 1.8;
+            line-height: 1.9;
         }
 
         /* ── Footer ── */
@@ -122,6 +149,7 @@
             margin-top: 2rem;
             font-size: 0.8rem;
             opacity: 0.6;
+            line-height: 1.6;
         }
     </style>
 </head>
@@ -131,161 +159,257 @@
     <!-- Header -->
     <div class="header">
         <div><a href="index.html" class="back-link">← Regresar</a></div>
-        <h1>📋 Términos y Condiciones</h1>
-        <p class="meta">My Wallet · Última modificación: mayo 2025</p>
+        <h1>🔒 Política de Privacidad</h1>
+        <p class="meta">MyWallet · Última actualización: 17 de marzo de 2026 · Versión 1.0</p>
     </div>
 
-    <!-- 1. Generales -->
+    <!-- 1. Información general -->
     <div class="card">
-        <h2><span class="icon">📌</span> Generales</h2>
-        <p>El presente documento regula la operación del programa <strong>MY WALLET</strong>, que se refiere a la acumulación y pago con puntos, así como al canje por beneficios establecidos.</p>
-        <p>Las razones sociales y marcas incluidas en el programa son: <strong>MAYI INTERNATIONAL GROUP, S.A. DE C.V.</strong> y <strong>ORMIC BUSINESS, S.A. de C.V.</strong> a través de <strong>INTERHOUSE</strong> y <strong>DECOSTORE</strong>, ubicadas en:</p>
+        <h2><span>📋</span> 1. Información General</h2>
+        <p>La presente Política de Privacidad describe cómo <strong>MyWallet</strong> ("la Aplicación", "nosotros" o "nuestro") recopila, utiliza, almacena y protege la información personal de nuestros usuarios ("usted" o "el Usuario").</p>
+        <p>Al descargar, instalar o utilizar la Aplicación, usted acepta los términos establecidos en esta Política. Si no está de acuerdo, le recomendamos no utilizar la Aplicación.</p>
+        <p><strong>Responsables del tratamiento de datos personales:</strong><br>
+        MAYI INTERNATIONAL GROUP, S.A. DE C.V. y ORMIC BUSINESS, S.A. DE C.V., operando a través de las marcas <strong>INTERHOUSE</strong> y <strong>DECOSTORE</strong>.</p>
+        <p>Sucursales: Sentura Tlalnepantla, Puerta Texcoco, Texcoco, Las Américas Ecatepec, Encuentro Fortuna (CDMX), The Park y Bugambilias San Luis Potosí, Poza Rica, Tapachula, Zona Celaya, Uptown Juriquilla, Cuernavaca, Sendero Culiacán, Meridiam Park Aguascalientes y Céntrika Monterrey.</p>
+    </div>
+
+    <!-- 2. Datos que recopilamos -->
+    <div class="card">
+        <h2><span>📦</span> 2. Datos Personales que Recopilamos</h2>
+
+        <h3>2.1 Información que usted nos proporciona directamente</h3>
+        <p><strong>Datos de identificación:</strong></p>
         <ul>
-            <li><strong>Estado de México:</strong> Sentura Tlalnepantla, Puerta Texcoco, Texcoco, Las Américas Ecatepec.</li>
-            <li><strong>Ciudad de México:</strong> Encuentro Fortuna.</li>
-            <li><strong>Otras ciudades:</strong> San Luis Potosí (The Park y Bugambilias), Poza Rica, Tapachula, Zona Celaya, Uptown Juriquilla, Cuernavaca, Sendero Culiacán, Meridiam Park Aguascalientes, Céntrika Monterrey.</li>
+            <li>Nombre completo y apellidos</li>
+            <li>Número de teléfono celular</li>
+            <li>Correo electrónico</li>
+            <li>Fecha de nacimiento</li>
+            <li>Código postal</li>
         </ul>
-        <p>El programa MY WALLET únicamente aplica para las razones sociales precisadas, sin responsabilidad alguna por servicios prestados por establecimientos ajenos a las mismas. La Empresa será responsable de que cada ubicación haga cumplir las redenciones, acumulaciones y canjes de puntos, así como las promociones y beneficios que establezca.</p>
-        <p>Para registrarse como miembro se requiere tener <strong>mínimo 18 años de edad</strong>. Al registrarse se aceptan los presentes Términos y Condiciones, siendo responsabilidad del miembro mantenerse actualizado de los mismos. El registro es <strong>gratuito</strong> y se realiza a través de la app móvil <strong>My Wallet</strong> (disponible para Android e iOS).</p>
-        <p>Al registrarse se solicitarán: nombre, correo electrónico, teléfono, código postal y fecha de cumpleaños. Es responsabilidad del usuario verificar que los datos ingresados sean correctos.</p>
+        <p><strong>Datos de autenticación:</strong></p>
+        <ul>
+            <li>Contraseña cifrada</li>
+            <li>Tokens de sesión</li>
+        </ul>
+        <p><strong>Datos fiscales (opcionales, para emisión de comprobantes):</strong></p>
+        <ul>
+            <li>RFC (Registro Federal de Contribuyentes)</li>
+            <li>Razón social o nombre fiscal</li>
+            <li>Tipo de persona (física o moral)</li>
+        </ul>
+
+        <h3>2.2 Información generada automáticamente</h3>
+        <p><strong>Datos transaccionales:</strong> historial de compras, montos, fechas y horarios, sucursales visitadas, folios de tickets.</p>
+        <p><strong>Datos del programa de lealtad:</strong> saldo de puntos, puntos utilizados, cupones asignados y canjeados, historial de recompensas.</p>
+        <p><strong>Datos técnicos:</strong> dirección IP, tipo de dispositivo, sistema operativo, versión de la app, registros de actividad e información de errores técnicos.</p>
+
+        <h3>2.3 Información que NO recopilamos</h3>
+        <ul>
+            <li>No recopilamos información biométrica.</li>
+            <li>No accedemos a sus contactos.</li>
+            <li>No rastreamos su ubicación en tiempo real.</li>
+            <li>No accedemos a su cámara o micrófono sin su consentimiento explícito (excepto para escaneo de códigos QR cuando usted lo active).</li>
+        </ul>
     </div>
 
-    <!-- 2. Puntos -->
+    <!-- 3. Finalidades -->
     <div class="card">
-        <h2><span class="icon">⭐</span> Puntos</h2>
-        <p>Los puntos utilizados en el programa son <strong>únicamente calificadores para pago y/o redención</strong> y no tienen valor monetario. Serán exclusivamente para uso de los usuarios dentro de los establecimientos participantes.</p>
-        <p>Los puntos acumulados disponibles pueden canjearse por beneficios y/o productos o servicios del programa. Una vez canjeado un beneficio, los puntos son restados automáticamente de la cuenta del usuario.</p>
+        <h2><span>⚙️</span> 3. Finalidades del Tratamiento</h2>
+
+        <h3>3.1 Finalidades primarias (necesarias para el servicio)</h3>
+        <ol>
+            <li>Registro y autenticación de su cuenta de usuario.</li>
+            <li>Acumulación, gestión y canje de puntos de recompensa.</li>
+            <li>Gestión de cupones: asignación, activación y procesamiento.</li>
+            <li>Registro y visualización de historial de transacciones.</li>
+            <li>Facturación electrónica: procesamiento de datos fiscales para generación de CFDI cuando usted lo solicite.</li>
+            <li>Atención al cliente: respuesta a consultas, quejas y solicitudes.</li>
+            <li>Sincronización de datos entre nuestros sistemas.</li>
+            <li>Seguridad: prevención de fraudes y protección del sistema.</li>
+            <li>Cumplimiento de obligaciones fiscales y regulatorias.</li>
+        </ol>
+
+        <h3>3.2 Finalidades secundarias (opcionales, requieren consentimiento)</h3>
+        <ol>
+            <li>Envío de notificaciones sobre ofertas, promociones y novedades.</li>
+            <li>Comunicaciones y ofertas especiales de cumpleaños.</li>
+            <li>Encuestas de satisfacción sobre nuestros servicios.</li>
+            <li>Análisis de patrones de uso para mejorar la Aplicación.</li>
+            <li>Reactivación de usuarios con inactividad reciente.</li>
+        </ol>
+        <p>Usted puede negarse al tratamiento para finalidades secundarias en cualquier momento, sin que esto afecte el servicio principal.</p>
+    </div>
+
+    <!-- 4. Compartir información -->
+    <div class="card">
+        <h2><span>🤝</span> 4. Compartir Información con Terceros</h2>
+
+        <h3>4.1 Proveedores de servicios</h3>
+        <ul>
+            <li><strong>Amazon Web Services (AWS):</strong> almacenamiento en la nube (DynamoDB, S3, Lambda, SNS, SQS). Servidores en US East (Norte de Virginia).</li>
+            <li><strong>Proveedores de notificaciones push:</strong> para enviar alertas y avisos.</li>
+            <li><strong>Proveedor de facturación electrónica:</strong> para la generación y timbrado de CFDI ante el SAT, cuando usted solicite factura.</li>
+            <li><strong>Servicios de análisis:</strong> para entender el uso de la Aplicación.</li>
+        </ul>
+        <p>Todos los proveedores están obligados contractualmente a proteger la confidencialidad de su información y a usarla únicamente para los fines autorizados.</p>
+
+        <h3>4.2 Transferencias legales</h3>
+        <p>Podemos divulgar información personal cuando sea requerido por ley, por orden judicial, o para prevenir fraudes, delitos o amenazas a la seguridad de los usuarios.</p>
+
+        <h3>4.3 Transferencias internacionales</h3>
+        <p>Al usar la Aplicación, usted consiente la transferencia de sus datos a servidores de AWS en Estados Unidos, garantizando niveles adecuados de protección y cumplimiento con la legislación mexicana aplicable.</p>
+
         <div class="highlight">
-            💡 Consulta ubicación y horarios de los establecimientos en Google buscándonos como <strong>Decostore</strong> / <strong>Interhouse</strong>.
+            🚫 <strong>NO vendemos sus datos.</strong> Nunca vendemos, alquilamos ni comercializamos su información personal a terceros con fines de marketing.
         </div>
     </div>
 
-    <!-- 3. Equivalencia -->
+    <!-- 5. Datos fiscales -->
     <div class="card">
-        <h2><span class="icon">💱</span> Equivalencia</h2>
-        <p>Cada punto no calificador equivale a <strong>$1.00 (un peso mexicano 00/100 M.N.)</strong>.</p>
-    </div>
-
-    <!-- 4. Identificador del usuario -->
-    <div class="card">
-        <h2><span class="icon">📱</span> Identificador del Usuario</h2>
-        <p>El identificador del usuario dentro del programa MY WALLET será su <strong>número telefónico (con código de país)</strong>: único, irrepetible e intransferible. Dicho identificador será proporcionado y validado al momento del registro.</p>
-        <p>El usuario solo podrá tener asociado <strong>un número telefónico</strong> a su cuenta. El alta en la app <strong>no tiene fecha de expiración</strong>.</p>
-    </div>
-
-    <!-- 5. Acumulación -->
-    <div class="card">
-        <h2><span class="icon">🛒</span> Acumulación</h2>
-        <p>Por cada <strong>$100.00 de compra</strong> se otorgarán <strong>5 puntos</strong>. El usuario podrá acumular puntos de las siguientes formas:</p>
+        <h2><span>🧾</span> 5. Datos Fiscales — Consideraciones Especiales</h2>
+        <p>Sus datos fiscales (RFC, razón social y tipo de persona) se tratan con las siguientes consideraciones:</p>
         <ul>
-            <li>Pagando el total de la compra con cualquier método de pago aceptado (excepto con puntos del programa MY WALLET), identificándose con su número telefónico o tarjeta digital al momento del pago.</li>
-            <li>Participando en promociones y/o dinámicas para usuarios del programa, conforme a sus términos específicos.</li>
-            <li>Los usuarios podrán pagar sus compras con puntos no calificadores en combinación con otras formas de pago aceptadas. *Consulta formas de pago aceptadas.</li>
+            <li>Se recopilan únicamente cuando usted los proporciona voluntariamente para solicitar CFDI.</li>
+            <li>Son utilizados exclusivamente para la generación de comprobantes fiscales conforme a la normativa del SAT.</li>
+            <li>Podrán compartirse con el proveedor de timbrado fiscal autorizado exclusivamente para dicho fin.</li>
+            <li>Se conservarán por un mínimo de <strong>5 años</strong>, conforme al Código Fiscal de la Federación.</li>
+            <li>No serán utilizados para finalidades secundarias sin su consentimiento expreso.</li>
         </ul>
-        <p><strong>No se acumularán puntos en los siguientes casos:</strong></p>
+    </div>
+
+    <!-- 6. Seguridad -->
+    <div class="card">
+        <h2><span>🛡️</span> 6. Seguridad de la Información</h2>
+        <p><strong>Medidas técnicas:</strong> cifrado en tránsito (HTTPS/TLS), cifrado en reposo (AES-256), contraseñas hasheadas (bcrypt), tokens JWT con expiración automática y firewalls de red.</p>
+        <p><strong>Medidas administrativas:</strong> acceso limitado a personal autorizado, capacitación en protección de datos, auditorías periódicas y contratos de confidencialidad.</p>
+        <p><strong>Medidas físicas:</strong> centros de datos AWS con control de acceso y monitoreo 24/7.</p>
+        <p>A pesar de nuestros esfuerzos, ningún sistema es 100% seguro. Usted es responsable de mantener segura su contraseña, no compartir sus credenciales, cerrar sesión en dispositivos compartidos y reportar actividad sospechosa de inmediato.</p>
+    </div>
+
+    <!-- 7. Retención -->
+    <div class="card">
+        <h2><span>🗄️</span> 7. Retención de Datos</h2>
         <ul>
-            <li>El monto pagado con puntos no calificadores no genera acumulación.</li>
-            <li>El monto pagado con puntos no es facturable.</li>
-            <li>Si el cliente no se identifica como usuario del programa al momento del pago en caja, no podrá acumular los puntos generados por ese consumo; reservándose La Empresa el derecho de la acumulación.</li>
+            <li><strong>Datos de cuenta activa:</strong> mientras su cuenta permanezca activa.</li>
+            <li><strong>Historial de transacciones y datos fiscales:</strong> mínimo 5 años (obligaciones fiscales).</li>
+            <li><strong>Datos de cupones:</strong> hasta 2 años después del vencimiento o canje.</li>
+            <li><strong>Registros de auditoría:</strong> 2 años.</li>
+            <li><strong>Datos de marketing:</strong> hasta que retire su consentimiento.</li>
         </ul>
-        <p>La acumulación se realiza por ticket de compra en una sola cuenta.</p>
+        <p>Cuando los datos ya no sean necesarios, se eliminarán de forma segura e irreversible o se anonimizarán para análisis estadísticos cuando sea posible.</p>
     </div>
 
-    <!-- 6. Canje -->
+    <!-- 8. Derechos ARCO -->
     <div class="card">
-        <h2><span class="icon">🎁</span> Canje</h2>
-        <p>El canje de puntos no calificadores se realiza por ticket de consumo por usuario, <strong>únicamente en los establecimientos participantes</strong>. Se utilizarán primero los puntos más antiguos del cliente, eliminándose automáticamente de la cuenta tras el canje. El cliente podrá consultar el historial de transacciones en su perfil.</p>
-        <p>El miembro deberá identificarse con su número y/o tarjeta digital al momento del pago y confirmar la cantidad de puntos que desea utilizar.</p>
-        <p>Los puntos <strong>no son canjeables por dinero en efectivo</strong> ni por bienes o valores fuera de lo establecido en estos Términos y Condiciones, salvo que La Empresa lo especifique expresamente.</p>
-        <p>Si el cliente detecta un movimiento en su saldo que no reconoce, deberá comunicarse con Atención a Clientes. La resolución será enviada por correo electrónico o mensaje de WhatsApp. Cualquier mal manejo de la información registrada se considerará actividad fraudulenta y derivará en la cancelación de la cuenta.</p>
+        <h2><span>✅</span> 8. Sus Derechos (Derechos ARCO)</h2>
+        <p>De conformidad con la <strong>Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP)</strong>, usted tiene derecho a:</p>
+        <ul>
+            <li><strong>Acceso:</strong> conocer qué datos tenemos sobre usted y para qué los utilizamos.</li>
+            <li><strong>Rectificación:</strong> solicitar la corrección de datos inexactos o incompletos.</li>
+            <li><strong>Cancelación:</strong> solicitar la eliminación de sus datos (sujeto a obligaciones legales).</li>
+            <li><strong>Oposición:</strong> oponerse al tratamiento de sus datos para fines específicos.</li>
+            <li><strong>Revocación de consentimiento:</strong> retirar su consentimiento sin efectos retroactivos.</li>
+            <li><strong>Limitación de uso y divulgación:</strong> solicitar que limitemos el uso o divulgación de sus datos.</li>
+            <li><strong>Portabilidad:</strong> solicitar una copia de sus datos en formato estructurado y de uso común.</li>
+        </ul>
     </div>
 
-    <!-- 7. Beneficios -->
+    <!-- 9. Cómo ejercer derechos -->
     <div class="card">
-        <h2><span class="icon">🎉</span> Beneficios del Programa</h2>
-        <p><strong>Acumulación de puntos:</strong> Por cada $100.00 de compra se otorgan 5 puntos, redimibles exclusivamente en sucursales participantes. No aplican otras promociones, cupones o descuentos de forma simultánea.</p>
-        <p><strong>Cupón de cumpleaños:</strong> Durante el mes de cumpleaños se otorga un cupón de descuento, canjeable una sola vez en una sola ubicación. No es acumulable, transferible ni canjeable por dinero u otro bien. Los beneficios de los cupones no son facturables. Para hacerlo válido es necesario identificarse con el número telefónico registrado.</p>
+        <h2><span>📩</span> 9. Cómo Ejercer sus Derechos</h2>
+        <p>Envíe un correo electrónico a: <strong>clientes@grupomayi.com</strong></p>
+        <p>Su solicitud debe incluir:</p>
+        <ul>
+            <li>Nombre completo</li>
+            <li>Número de teléfono registrado</li>
+            <li>Correo electrónico registrado</li>
+            <li>Descripción clara del derecho que desea ejercer</li>
+            <li>Documentos que acrediten su identidad (INE / pasaporte)</li>
+        </ul>
         <div class="highlight">
-            ⚠️ La fecha de cumpleaños <strong>no podrá modificarse</strong> después del registro, para evitar futuras modificaciones indebidas.
+            🕒 <strong>Plazos:</strong> 20 días hábiles para dar respuesta; 15 días hábiles adicionales para hacer efectivo el derecho si procede. La primera solicitud en un período de 12 meses es gratuita.
         </div>
-        <p style="margin-top: 0.8rem;">El miembro podrá consultar los Términos, Condiciones y Vigencias desde la app del programa.</p>
     </div>
 
-    <!-- 8. Cancelación -->
+    <!-- 10. Cookies -->
     <div class="card">
-        <h2><span class="icon">❌</span> Cancelación</h2>
-        <p>La cuenta del usuario podrá cancelarse por los siguientes motivos:</p>
+        <h2><span>🍪</span> 10. Cookies y Tecnologías Similares</h2>
+        <p>La Aplicación móvil no utiliza cookies de navegador. Sin embargo, utilizamos:</p>
         <ul>
-            <li><strong>Solicitud del usuario:</strong> directamente en la app, vía Atención al Cliente o canales de comunicación en redes sociales, indicando el motivo.</li>
-            <li><strong>Actividades inusuales o indebidas</strong> detectadas en la cuenta.</li>
+            <li>Almacenamiento local para guardar preferencias y sesión.</li>
+            <li>Identificadores de dispositivo para autenticación y seguridad.</li>
+            <li>Tokens de sesión para mantener su sesión activa.</li>
         </ul>
-        <p>Tras la cancelación:</p>
-        <ul>
-            <li>El usuario no podrá recibir puntos ni beneficios del programa.</li>
-            <li>Los puntos acumulados y beneficios vigentes se cancelarán permanentemente y no podrán volver a utilizarse.</li>
-            <li>Se enviará una notificación por correo electrónico sobre la cancelación.</li>
-            <li>Se inactivará la membresía.</li>
-        </ul>
-        <p>La Empresa se reserva el derecho de anular la membresía y cancelar los puntos obtenidos de aquellos miembros que hagan un mal uso de sus derechos o desvirtúen la mecánica del programa.</p>
+        <p>Usted puede borrar datos locales desde la configuración de su dispositivo, cerrar sesión para eliminar tokens activos, o desinstalar la Aplicación para eliminar todo el almacenamiento local.</p>
     </div>
 
-    <!-- 9. Restricciones -->
+    <!-- 11. Menores -->
     <div class="card">
-        <h2><span class="icon">🚫</span> Restricciones</h2>
-        <p><strong>Colaboradores:</strong> Los colaboradores de La Empresa no podrán ser miembros del programa ni realizar transacciones del programa durante o fuera de sus horarios laborales, ni a su propio favor. El incumplimiento derivará en su baja inmediata.</p>
-        <p><strong>Cambios y devoluciones:</strong></p>
-        <ul>
-            <li>En caso de devolución de un producto adquirido con puntos, dichos puntos serán deducidos de la cuenta. Si no se cuenta con puntos suficientes, deberá cubrirse el importe en moneda nacional y se abonarán los puntos previos como si no se hubieran redimido.</li>
-            <li>En devoluciones parciales, los puntos correspondientes a esa parte serán deducidos proporcionalmente.</li>
-            <li>Los puntos utilizados <strong>no serán reembolsados en efectivo</strong> ni como crédito en la cuenta.</li>
-            <li>Para que una devolución sea aceptada, el producto debe estar en condiciones originales, sin uso, con empaques intactos y dentro del plazo establecido por la política de devoluciones.</li>
-        </ul>
+        <h2><span>👶</span> 11. Menores de Edad</h2>
+        <p>La Aplicación <strong>NO está dirigida a menores de 18 años</strong>. No recopilamos intencionalmente información de menores. Si identificamos que un usuario es menor de edad, eliminaremos su cuenta de inmediato. Si es padre o tutor y descubre que su hijo ha proporcionado información, contáctenos de inmediato.</p>
     </div>
 
-    <!-- 10. Disposiciones generales -->
+    <!-- 12. Cambios a la política -->
     <div class="card">
-        <h2><span class="icon">📜</span> Disposiciones Generales</h2>
-        <p>La Empresa no tendrá responsabilidad en casos de fuerza mayor, caso fortuito o razones fuera de su control que le impidan cumplir con estos Términos y Condiciones, ni por cambios o descontinuación de productos de otras empresas integradas al programa.</p>
-        <p>La Empresa no es responsable por fallas en el sistema de la sucursal participante que impidan realizar la acumulación, pago o canje de puntos. Los puntos <strong>no tienen valor monetario</strong> y no pueden canjearse por dinero en efectivo, electrónico o título de crédito alguno.</p>
+        <h2><span>🔄</span> 12. Cambios a esta Política</h2>
+        <p>Nos reservamos el derecho de actualizar esta Política en cualquier momento. Ante cambios significativos, le notificaremos mediante notificación push, correo electrónico y aviso destacado en la Aplicación. Si los cambios afectan significativamente sus derechos, solicitaremos su consentimiento expreso. El uso continuado de la Aplicación tras la publicación de cambios constituye su aceptación.</p>
     </div>
 
-    <!-- 11. Cambios al programa -->
+    <!-- 13. Notificaciones -->
     <div class="card">
-        <h2><span class="icon">🔄</span> Cambios al Programa MY WALLET</h2>
-        <p>La Empresa se reserva el derecho de realizar modificaciones o añadir anexos al programa, siempre que estén justificados y no perjudiquen a los usuarios. Es responsabilidad exclusiva del usuario asegurarse de conocer dichas modificaciones.</p>
-        <p>La Empresa podrá modificar o concluir el programa MY WALLET notificando con al menos <strong>30 días de antelación</strong>, permitiendo a los usuarios canjear sus puntos antes de que la app deje de estar disponible. Si el cliente no canjea sus puntos dentro de ese plazo, La Empresa no se hace responsable por los puntos y beneficios acumulados.</p>
+        <h2><span>🔔</span> 13. Notificaciones y Comunicaciones</h2>
+        <p><strong>Notificaciones del servicio (no pueden desactivarse):</strong> confirmación de transacciones, cambios en saldo de puntos, vencimiento de cupones, actualizaciones importantes del servicio y cambios en términos y condiciones.</p>
+        <p><strong>Notificaciones promocionales (opcionales):</strong> ofertas especiales, nuevos cupones, promociones y felicitaciones de cumpleaños. Puede optar por no recibirlas desde la configuración de la Aplicación.</p>
     </div>
 
-    <!-- 12. Propiedad intelectual -->
+    <!-- 14. INAI -->
     <div class="card">
-        <h2><span class="icon">©️</span> Propiedad Intelectual</h2>
-        <p>La Empresa se reserva el uso exclusivo de sus marcas, logotipos y signos distintivos. Ningún tercero está autorizado a utilizarlos, reproducirlos o modificarlos sin consentimiento expreso y por escrito. Las marcas se encuentran debidamente registradas, lo que confiere a la empresa el derecho exclusivo de uso en todo el territorio nacional.</p>
-        <p>El usuario no adquiere ningún derecho sobre el programa MY WALLET. Al aceptar estos Términos y Condiciones, el usuario reconoce ser el único responsable de verificar los permisos y licencias necesarios respecto al material que utilice en relación con el programa.</p>
-        <p>La Empresa se reserva el derecho de ejercer las acciones legales aplicables contra cualquier usuario que haga un uso no autorizado del material relacionado con el programa. El usuario libera a La Empresa de cualquier responsabilidad derivada de reclamaciones de terceros por el uso indebido que el usuario pudiere hacer de dicho material.</p>
+        <h2><span>🏛️</span> 14. Quejas ante el INAI</h2>
+        <p>Si considera que su derecho a la protección de datos personales ha sido vulnerado, puede interponer una queja ante el <strong>Instituto Nacional de Transparencia, Acceso a la Información y Protección de Datos Personales (INAI)</strong>:</p>
+        <div class="highlight">
+            🌐 <a href="https://home.inai.org.mx" target="_blank">home.inai.org.mx</a><br>
+            📞 800 835 43 24<br>
+            📧 info@inai.org.mx
+        </div>
     </div>
 
-    <!-- 13. Legislación -->
+    <!-- 15. Contacto -->
     <div class="card">
-        <h2><span class="icon">⚖️</span> Legislación Aplicable</h2>
-        <p>Todos los derechos y obligaciones derivados de estos Términos y Condiciones se rigen por las leyes de los <strong>Estados Unidos Mexicanos</strong>.</p>
-        <p>Para cualquier controversia derivada de estos Términos, las partes se someten a las leyes y jurisdicción de los tribunales competentes de la <strong>Ciudad de México (CDMX)</strong>, renunciando expresamente a cualquier otro fuero que pudiera corresponderles.</p>
-    </div>
-
-    <!-- 14. Atención al cliente -->
-    <div class="card">
-        <h2><span class="icon">📬</span> Atención al Cliente</h2>
-        <p><strong>Mayi International Group</strong></p>
+        <h2><span>📬</span> 15. Contacto</h2>
+        <p><strong>MAYI INTERNATIONAL GROUP, S.A. DE C.V.</strong></p>
         <div class="contact-box">
-            📞 Teléfono: <strong>55 2394 1858</strong><br>
-            📧 Correo: <strong>clientes@grupomayi.com</strong><br><br>
-            🕒 <strong>Horarios de atención:</strong><br>
+            📧 clientes@grupomayi.com<br>
+            📞 55 2394 1858<br><br>
+            🕒 <strong>Horario de atención:</strong><br>
             Lunes a viernes: 10:30 a.m. – 6:00 p.m.<br>
             Sábados: 10:30 a.m. – 2:00 p.m.
         </div>
     </div>
 
+    <!-- 16. Disposiciones finales -->
+    <div class="card">
+        <h2><span>📜</span> 16. Disposiciones Finales</h2>
+        <p>Si alguna disposición de esta Política es declarada inválida, las demás permanecerán en pleno vigor. Esta Política está redactada en español; cualquier traducción es únicamente para conveniencia y no tiene valor legal. Esta Política, junto con los Términos y Condiciones de Uso, constituye el acuerdo completo entre usted y MyWallet respecto al tratamiento de datos personales.</p>
+    </div>
+
+    <!-- 17. Consentimiento -->
+    <div class="card">
+        <h2><span>🖊️</span> 17. Consentimiento</h2>
+        <p>Al crear una cuenta y utilizar la Aplicación MyWallet, usted:</p>
+        <ul class="consent-list">
+            <li>Confirma que ha leído y comprendido esta Política de Privacidad.</li>
+            <li>Acepta el tratamiento de sus datos personales conforme a lo descrito.</li>
+            <li>Consiente el uso de sus datos para las finalidades primarias descritas.</li>
+            <li>Entiende que puede ejercer sus derechos ARCO en cualquier momento.</li>
+            <li>Acepta las transferencias de datos a terceros proveedores de servicios.</li>
+            <li>Reconoce que puede retirar su consentimiento en cualquier momento.</li>
+        </ul>
+        <p style="margin-top: 0.8rem;">Para finalidades secundarias (marketing, promociones, etc.), puede otorgar o negar su consentimiento durante el registro y modificar sus preferencias en cualquier momento desde la configuración de la Aplicación. La negativa no afectará el servicio principal.</p>
+    </div>
+
     <div class="footer">
-        © 2025 Mayi International Group / Ormic Business · My Wallet · Última modificación: mayo 2025
+        Fecha de última actualización: 17 de marzo de 2026 · Versión 1.0<br>
+        © 2026 Mayi International Group, S.A. de C.V. / Ormic Business, S.A. de C.V. Todos los derechos reservados.
     </div>
 
 </div>
